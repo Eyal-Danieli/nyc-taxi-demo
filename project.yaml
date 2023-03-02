@@ -3,6 +3,27 @@ metadata:
   name: ny-lgbm-demo-yaronh
   created: '2023-02-16T15:06:21.174000'
 spec:
+  functions:
+  - name: data-prep
+    kind: job
+    image: mlrun/ml-models
+    handler: src.data_prep.data_preparation
+    with_repo: true
+  - name: trainer
+    kind: job
+    image: mlrun/ml-models
+    handler: src.trainer.train
+    with_repo: true
+  - url: hub://auto_trainer
+    name: evaluate
+    kind: job
+    image: mlrun/ml-models
+    handler: evaluate
+  - name: server_tester
+    kind: job
+    image: mlrun/ml-models
+    handler: src.serving_test.model_server_tester
+    with_repo: true
   workflows:
   - path: src/train_workflow.py
     name: train_workflow
