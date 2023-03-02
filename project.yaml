@@ -24,6 +24,7 @@ spec:
       kind: serving
       metadata:
         name: serving
+        project: ny-lgbm-demo-yaronh
         categories: []
       spec:
         command: ''
