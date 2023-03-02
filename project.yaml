@@ -1,6 +1,6 @@
 kind: project
 metadata:
-  name: nyc-yaronh
+  name: nyc-yaronh-demo
   created: '2023-02-16T15:06:21.174000'
 spec:
   functions:
@@ -24,7 +24,7 @@ spec:
       kind: serving
       metadata:
         name: serving
-        project: nyc-yaronh
+        project: nyc-yaronh-demo
         categories: []
       spec:
         command: ''
@@ -33,7 +33,7 @@ spec:
         build:
           source: ./
           commands: []
-          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main#f21c030122144c4de8588718bbb435434eadbf67
+          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#main
         description: ''
         disable_auto_mount: false
         env: []
