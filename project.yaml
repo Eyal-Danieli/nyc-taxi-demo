@@ -33,7 +33,7 @@ spec:
         build:
           source: ./
           commands: []
-          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#main
+          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main#05041ef03535bfdcf2aa5b43181f349b5769434f
         description: ''
         disable_auto_mount: false
         env: []
