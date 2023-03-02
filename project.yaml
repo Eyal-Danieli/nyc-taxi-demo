@@ -24,7 +24,7 @@ spec:
       kind: serving
       metadata:
         name: serving
-        project: nyc-yaronh-demo
+        project: ny-demo-lgbm-model
         categories: []
       spec:
         command: ''
@@ -33,7 +33,7 @@ spec:
         build:
           source: ./
           commands: []
-          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main#50617b190776fa58c8145c30c3c40004e5866f4d
+          code_origin: git://github.com/davesh0812/nyc-taxi-demo.git#refs/heads/main#f21c030122144c4de8588718bbb435434eadbf67
         description: ''
         disable_auto_mount: false
         env: []
