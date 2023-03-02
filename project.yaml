@@ -1,6 +1,6 @@
 kind: project
 metadata:
-  name: nyc-yaronh-demo
+  name: nyc-demo-v3
   created: '2023-02-16T15:06:21.174000'
 spec:
   functions:
