@@ -1,7 +1,7 @@
 kind: project
 metadata:
-  name: eyal-demo-nyc-v1
-  created: '2023-02-16T15:06:21.174000'
+  name: nyc-demo-eyal-v5
+  created: '2023-03-06T14:45:31.404000'
 spec:
   functions:
   - name: data-prep
@@ -24,7 +24,6 @@ spec:
       kind: serving
       metadata:
         name: serving
-        project: eyal-demo-nyc-v1
         categories: []
       spec:
         command: ''
@@ -33,7 +32,7 @@ spec:
         build:
           source: ./
           commands: []
-          code_origin: git://github.com/davesh0812/nyc-taxi-demo.git#refs/heads/main#f21c030122144c4de8588718bbb435434eadbf67
+          code_origin: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main#4895a87964101bf6456791258ec975c2694f9061
         description: ''
         disable_auto_mount: false
         env: []
@@ -105,23 +104,7 @@ spec:
               responder: true
           engine: async
         secret_sources: []
-        affinity:
-          nodeAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: app.iguazio.com/lifecycle
-                  operator: NotIn
-                  values:
-                  - preemptible
-                - key: eks.amazonaws.com/capacityType
-                  operator: NotIn
-                  values:
-                  - SPOT
-                - key: node-lifecycle
-                  operator: NotIn
-                  values:
-                  - spot
+        affinity: null
         tolerations: null
         security_context: {}
       verbose: false
@@ -136,9 +119,11 @@ spec:
   - path: src/predict_workflow.py
     name: predict_workflow
   artifacts: []
-  source: git://github.com/davesh0812/nyc-taxi-demo.git#refs/heads/main
-  origin_url: git://github.com/davesh0812/nyc-taxi-demo.git#refs/heads/main
+  conda: ''
+  source: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main
+  origin_url: git://github.com/Eyal-Danieli/nyc-taxi-demo.git#refs/heads/main
   load_source_on_run: true
   desired_state: online
+  owner: iguazio
 status:
   state: online
