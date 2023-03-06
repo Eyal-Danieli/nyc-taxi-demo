@@ -4,8 +4,8 @@ from kfp import dsl
 
 @dsl.pipeline(name="train_workflow")
 def pipeline(
-    dataset: str = "https://s3.us-east-1.wasabisys.com/iguazio/data/nyc-taxi/train.csv",
-    project_name: str = None,
+        dataset: str = "https://s3.us-east-1.wasabisys.com/iguazio/data/nyc-taxi/train.csv",
+        project_name: str = None,
 ):
     # Get our project object:
     project = mlrun.get_current_project()
@@ -53,7 +53,7 @@ def pipeline(
         training_run.outputs["model"]
     )
     # Enable model monitoring
-    image = "quay.io/eyaligu/mlrun-api:nyc-demo"
+    image = "quay.io/eyaligu/mlrun-api:ensure-project"
     tracking_policy = {'default_batch_intervals': "0 */2 * * *", 'stream_image': image, 'default_batch_image': image}
     serving_function.set_tracking(tracking_policy=tracking_policy)
 
