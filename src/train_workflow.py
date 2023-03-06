@@ -56,9 +56,9 @@ def pipeline(
     
     image = "quay.io/eyaligu/mlrun-api:ensure-project"
     # Add the model to the serving function's routing spec
-    serving_fn.add_model(model_name, model_path=f"store://models/{project_name}/{model_name}:latest")
+    serving_function.add_model(model_name, model_path=f"store://models/{project_name}/{model_name}:latest")
     tracking_policy = {'default_batch_intervals':"0 */2 * * *", 'stream_image':image, 'default_batch_image':image}
-    serving_fn.set_tracking(tracking_policy=tracking_policy)
+    serving_function.set_tracking(tracking_policy=tracking_policy)
     # Enable model monitoring
 #     serving_function.set_tracking()
 
