@@ -1,6 +1,6 @@
 kind: project
 metadata:
-  name: nyc-demo-eyal-v5
+  name: nyc-demo-eyal-v6
   created: '2023-03-06T14:45:31.404000'
 spec:
   functions:
@@ -24,6 +24,7 @@ spec:
       kind: serving
       metadata:
         name: serving
+        project: nyc-demo-eyal-v6
         categories: []
       spec:
         command: ''
