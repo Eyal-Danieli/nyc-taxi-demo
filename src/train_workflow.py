@@ -53,8 +53,14 @@ def pipeline(
     serving_function.spec.graph["predict_fare"].class_args["model_path"] = str(
         training_run.outputs["model"]
     )
+    
+    image = "quay.io/eyaligu/mlrun-api:ensure-project"
+    # Add the model to the serving function's routing spec
+    serving_fn.add_model(model_name, model_path=f"store://models/{project_name}/{model_name}:latest")
+    tracking_policy = {'default_batch_intervals':"0 */2 * * *", 'stream_image':image, 'default_batch_image':image}
+    serving_fn.set_tracking(tracking_policy=tracking_policy)
     # Enable model monitoring
-    serving_function.set_tracking()
+#     serving_function.set_tracking()
 
     # Deploy the serving function:
     deploy_return = project.deploy_function("serving").after(training_run)
